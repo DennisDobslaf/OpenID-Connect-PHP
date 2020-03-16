@@ -573,7 +573,7 @@ class OpenIDConnectClient
 
         $port = (443 === $port) || (80 === $port) ? '' : ':' . $port;
 
-        return sprintf('%s://%s%s/%s', $protocol, $host, $port, @trim(reset(explode('?', $_SERVER['REQUEST_URI'])), '/'));
+        return sprintf('%s://%s%s/%s', strtolower($protocol), strtolower($host), $port, @trim(reset(explode('?', $_SERVER['REQUEST_URI'])), '/'));
     }
 
     /**
